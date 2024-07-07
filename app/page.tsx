@@ -5,7 +5,8 @@ export default function Page() {
     <section>
       {/* <h1 className="mb-8 text-2xl font-semibold tracking-tighter">
         My Portfolio
-      </h1> //might use for seo for names - tejas upadhyay */}
+      </h1> //might use for seo for names - tejas */}
+      <h1 className="font-semibold text-2xl mb-8 tracking-tight">About me</h1>
       <p className="mb-4">
         {`My name is Tejas. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum consequat, nunc ac ultricies consectetur, metus est aliquet est, et bibendum nunc mi non arcu. Integer in lorem eget sapien venenatis luctus. Nulla facilisi.
 
