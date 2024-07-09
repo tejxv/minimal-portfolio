@@ -18,15 +18,15 @@ function RssIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="20"
-      height="20"
+      width="16"
+      height="16"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
       stroke-width="2"
       stroke-linecap="round"
       stroke-linejoin="round"
-      className="lucide lucide-rss"
+      className="lucide translate-y-0.5 lucide-rss"
     >
       <path d="M4 11a9 9 0 0 1 9 9" />
       <path d="M4 4a16 16 0 0 1 16 16" />
@@ -38,11 +38,11 @@ function RssIcon() {
 export default function Footer() {
   return (
     <footer className="mb-16">
-      <ul className="font-sm mt-8 flex flex-col space-x-0 space-y-2 text-neutral-600 md:flex-row md:space-x-4 md:space-y-0">
+      <ul className="font-sm mt-8 flex flex-col text-neutral-600 md:flex-row md:space-y-0">
         <li></li>
         <li>
           <a
-            className="flex items-center transition-all hover:text-neutral-800"
+            className="flex mr-2 items-center transition-all hover:text-neutral-800"
             rel="noopener noreferrer"
             target="_blank"
             href="https://github.com/tejxv"
@@ -53,7 +53,7 @@ export default function Footer() {
         </li>
         <li>
           <a
-            className="flex items-center transition-all hover:text-neutral-800"
+            className="flex mr-2 items-center transition-all hover:text-neutral-800"
             rel="noopener noreferrer"
             target="_blank"
             href="https://www.linkedin.com/in/tejas-u/"
@@ -64,7 +64,7 @@ export default function Footer() {
         </li>
         <li>
           <a
-            className="flex items-center transition-all hover:text-neutral-800"
+            className="flex mr-2 items-center transition-all hover:text-neutral-800"
             rel="noopener noreferrer"
             target="_blank"
             href="https://figma.com/@tejas"
@@ -76,7 +76,7 @@ export default function Footer() {
       </ul>
       <p className="mt-8 text-neutral-500">
         © {new Date().getFullYear()} Developed by Tejas <br></br>
-        <span className="text-neutral-400">
+        <span className="text-neutral-400 text-sm">
           Built with Next.js, Tailwind CSS, and Vercel.
           <a
             className="items-center transition-all w-min hover:text-neutral-800"
@@ -84,11 +84,9 @@ export default function Footer() {
             target="_blank"
             href="/rss"
           >
-            <p className="mt-4 w-fit text-sm h-7">
-              <span className="h-2 w-min">
-                <RssIcon />
-              </span>
-            </p>
+            <span className="ml-2 inline-block">
+              <RssIcon />
+            </span>
           </a>
         </span>
       </p>

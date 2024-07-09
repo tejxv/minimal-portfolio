@@ -3,13 +3,15 @@ import Link from "next/link"
 export default function Header() {
   return (
     <>
-      <div className="mt-6 flex justify-between flex-row align-center items-baseline w-full">
+      <div className="mt-6 flex justify-between mx-auto max-w-xl flex-row align-center items-baseline w-full">
         <Link href="/">
           <div className="flex flex-row align-center items-baseline">
             <h1 className="mb-8 text-2xl font-semibold tracking-tight">
               Tejas
             </h1>
-            <h3 className="ml-2 text-xl text-neutral-400">Product Designer</h3>
+            <h3 className="ml-2 text-xl text-neutral-400 tracking-tight">
+              Product Designer
+            </h3>
           </div>
         </Link>
         <a
