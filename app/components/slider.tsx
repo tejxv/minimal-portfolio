@@ -17,11 +17,9 @@ const images = [
 ]
 
 export default function EmblaCarousel() {
-  const [emblaRef] = useEmblaCarousel(
-    { loop: true },
-    [AutoScroll({ speed: 0.8, stopOnInteraction: false })],
-    [WheelGesturesPlugin()]
-  )
+  const [emblaRef] = useEmblaCarousel({ loop: true }, [
+    AutoScroll({ speed: 0.8, stopOnInteraction: false }),
+  ])
 
   const getRandomRotation = () => {
     const min = -1
