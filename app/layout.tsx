@@ -8,6 +8,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 import Footer from "./components/footer"
 import Header from "./components/header"
 import { baseUrl } from "./sitemap"
+import EmblaCarousel from "./components/slider"
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -48,6 +49,7 @@ export default function RootLayout({
     <html lang="en" className={GeistSans.className}>
       <body className="antialiased max-w-xl mx-4 lg:mx-auto">
         <Header />
+        <EmblaCarousel />
         <main className="flex-auto min-w-0 flex flex-col px-2 md:px-0">
           <div className="flex">
             <Navbar />
