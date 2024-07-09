@@ -12,12 +12,18 @@ export default function Header() {
             <h3 className="ml-2 text-xl text-neutral-400">Product Designer</h3>
           </div>
         </Link>
-        <div className="text-neutral-400 cursor-pointer hover:text-neutral-900">
-          Resume{" "}
-          <span className="border rounded-lg font-medium text-sm py-0.5 px-1.5">
-            PDF
-          </span>
-        </div>
+        <a
+          href="https://firebasestorage.googleapis.com/v0/b/marine2-f2279.appspot.com/o/Tejas__CV.pdf?alt=media&token=b3c06222-5c5c-406d-899a-b3dd65176ade"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div className="text-neutral-400 cursor-pointer hover:text-neutral-900">
+            Resume{" "}
+            <span className="border rounded-lg font-medium text-sm py-0.5 px-1.5">
+              PDF
+            </span>
+          </div>
+        </a>
       </div>
     </>
   )
