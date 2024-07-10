@@ -38,17 +38,16 @@ function RssIcon() {
 export default function Footer() {
   return (
     <footer className="mb-16">
-      <ul className="font-sm mt-8 flex flex-col text-neutral-600 md:flex-row md:space-y-0">
-        <li></li>
+      <ul className="font-sm mt-8 flex flex-col text-neutral-500 md:flex-row md:space-y-0">
         <li>
           <a
             className="flex mr-2 items-center transition-all hover:text-neutral-800"
             rel="noopener noreferrer"
             target="_blank"
-            href="https://github.com/tejxv"
+            href="https://behance.com/tejxv"
           >
             <ArrowIcon />
-            <p className="ml-2 h-7">github</p>
+            <p className="ml-2 h-7">behance</p>
           </a>
         </li>
         <li>
@@ -60,6 +59,17 @@ export default function Footer() {
           >
             <ArrowIcon />
             <p className="ml-2 h-7">linkedin</p>
+          </a>
+        </li>
+        <li>
+          <a
+            className="flex mr-2 items-center transition-all hover:text-neutral-800"
+            rel="noopener noreferrer"
+            target="_blank"
+            href="https://github.com/tejxv"
+          >
+            <ArrowIcon />
+            <p className="ml-2 h-7">github</p>
           </a>
         </li>
         <li>

@@ -10,7 +10,11 @@ export default function Page() {
       </h1> //might use for seo for names - tejas */}
       <h1 className="font-semibold text-2xl mb-8 tracking-tight">About me</h1>
       <p className="mb-4 text-neutral-500">
-        {`My name is Tejas Upadhyay, I’m a designer working as a Product Designer at Blogpro. My passion is to create emotional experiences at the intersection of art, design, and AI.`}
+        My name is Tejas Upadhyay. A product designer who loves to code, I'm
+        currently working at Blogpro, a startup that converts your Notion pages
+        into a well-designed blog.
+        <br></br> My passion is creating experiences at the intersection of art,
+        design, and accessibility.
       </p>
       <div className="my-8">
         <Experience />

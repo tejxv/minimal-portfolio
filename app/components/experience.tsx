@@ -1,4 +1,5 @@
 import LinkWithImage from "./helpers/LinkWithImage"
+import WorkExperienceComponent from "./helpers/Exp"
 
 export default function Experience() {
   return (
@@ -18,7 +19,7 @@ export default function Experience() {
         </LinkWithImage>{" "}
         since Feb 2024 till now. <br />
         <br />
-        In the past, I've collaborated with{" "}
+        In the past few months, I've collaborated with{" "}
         <LinkWithImage
           href="https://twitter.com/FinFloww/"
           src="/icons/finfloww.jpg"
@@ -26,16 +27,17 @@ export default function Experience() {
         >
           FinFloww
         </LinkWithImage>
-        ,{" "}
+        ,<br></br>
         <LinkWithImage
           href="https://www.google.com/search?q=rentit4me.com"
-          src="/icons/rentit4me.jpeg"
+          src="/icons/rentit4me.png"
           alt="Rentit4me logo"
         >
           Rentit4me
         </LinkWithImage>{" "}
-        to revamp their designs.
+        , a shark tank featured startup, to revamp their designs.
       </p>
+      <WorkExperienceComponent />
     </section>
   )
 }
