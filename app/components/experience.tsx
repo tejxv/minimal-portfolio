@@ -7,7 +7,7 @@ export default function Experience() {
           My Portfolio
         </h1> //might use for seo for names - tejas */}
       <h1 className="font-semibold text-2xl mb-8 tracking-tight">Experience</h1>
-      <p className="mb-4 text-neutral-600">
+      <p className="mb-4 text-neutral-500">
         Working as a Product Designer + UI Engineer for{" "}
         <LinkWithImage
           href="https://blogpro.so/"
