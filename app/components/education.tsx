@@ -6,7 +6,7 @@ export default function Education() {
       </h1> //might use for seo for names - tejas */}
       <h1 className="font-semibold text-2xl mb-8 tracking-tight">Education</h1>
       <p className="mb-4 text-neutral-500">
-        {`My name is Tejas Upadhyay. I graduated with a degree in Computer Science Engineering from Gautam Buddha University.`}{" "}
+        {`I graduated with a degree in Computer Science Engineering from Gautam Buddha University.`}{" "}
       </p>
     </section>
   )
