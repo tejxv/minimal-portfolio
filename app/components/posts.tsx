@@ -6,7 +6,10 @@ export function BlogPosts() {
 
   return (
     <div>
-      {allBlogs
+      <h2 className="my-8 tracking-tight text-neutral-500">
+        👨‍🍳 Cooking some fresh blogs as of now, check back later!
+      </h2>
+      {/* {allBlogs
         .sort((a, b) => {
           if (
             new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)
@@ -30,7 +33,7 @@ export function BlogPosts() {
               </p>
             </div>
           </Link>
-        ))}
+        ))} */}
     </div>
   )
 }
