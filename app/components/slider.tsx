@@ -36,10 +36,13 @@ const EmblaCarousel = () => {
     WheelGesturesPlugin(),
   ])
   const [isLoading, setIsLoading] = useState(true)
+  const [opacity, setOpacity] = useState(0)
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false)
+      // Start fade-in after loading is complete
+      setTimeout(() => setOpacity(1), 50)
     }, 1000) // Simulate loading time
 
     return () => clearTimeout(timer)
@@ -57,8 +60,9 @@ const EmblaCarousel = () => {
 
   return (
     <div
-      className="embla mx-auto mb-10 max-w-full rounded-lg h-[200px] md:h-[440px]"
+      className="embla mx-auto mb-10 max-w-full rounded-lg h-[200px] md:h-[440px] transition-opacity duration-1000 ease-in-out"
       ref={emblaRef}
+      style={{ opacity }}
     >
       <div className="embla__container h-full">
         {images.map((src, index) => (
