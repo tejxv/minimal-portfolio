@@ -10,9 +10,7 @@ export default function Page() {
       </h1> //might use for seo for names - tejas */}
       <h1 className="font-semibold text-2xl mb-8 tracking-tight">About me</h1>
       <p className="mb-4 text-neutral-500">
-        {`My name is Tejas. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum consequat, nunc ac ultricies consectetur, metus est aliquet est, et bibendum nunc mi non arcu. Integer in lorem eget sapien venenatis luctus. Nulla facilisi.
-
-Suspendisse potenti. Sed quis suscipit turpis. Cras dapibus, erat at dapibus dignissim, urna justo aliquam nisi, at laoreet libero felis vel libero. Praesent efficitur quam at ligula ullamcorper, sed interdum velit malesuada. Sed ac nulla vel felis posuere vehicula. Aliquam erat volutpat.`}
+        {`My name is Tejas Upadhyay, I’m a designer working as a Product Designer at Blogpro. My passion is to create emotional experiences at the intersection of art, design, and AI.`}
       </p>
       <div className="my-8">
         <Experience />
@@ -20,9 +18,9 @@ Suspendisse potenti. Sed quis suscipit turpis. Cras dapibus, erat at dapibus dig
       <div className="my-8">
         <Education />
       </div>
-      <div className="my-8">
+      {/* <div className="my-8">
         <BlogPosts />
-      </div>
+      </div> */}
     </section>
   )
 }
