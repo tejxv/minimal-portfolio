@@ -1,9 +1,10 @@
 "use client"
-
-import React from "react"
+import React, { useState, useEffect } from "react"
+import dynamic from "next/dynamic"
 import useEmblaCarousel from "embla-carousel-react"
 import AutoScroll from "embla-carousel-auto-scroll"
 import { WheelGesturesPlugin } from "embla-carousel-wheel-gestures"
+import LoadingSkeleton from "./LoadingSkeleton"
 
 const images = [
   "/slider-images/P1.png",
@@ -29,16 +30,29 @@ const images = [
   "/slider-images/P21.png",
 ]
 
-export default function EmblaCarousel() {
+const EmblaCarousel = () => {
   const [emblaRef] = useEmblaCarousel({ loop: true, dragFree: true }, [
     AutoScroll({ speed: 0.8, stopOnInteraction: false, startDelay: 0 }),
     WheelGesturesPlugin(),
   ])
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false)
+    }, 1000) // Simulate loading time
+
+    return () => clearTimeout(timer)
+  }, [])
 
   const getRandomRotation = () => {
     const min = 0
     const max = 0
     return Math.random() * (max - min) + min
+  }
+
+  if (isLoading) {
+    return <LoadingSkeleton />
   }
 
   return (
@@ -66,3 +80,8 @@ export default function EmblaCarousel() {
     </div>
   )
 }
+
+export default dynamic(() => Promise.resolve(EmblaCarousel), {
+  ssr: false,
+  loading: () => <LoadingSkeleton />,
+})
