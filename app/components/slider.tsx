@@ -56,6 +56,7 @@ export default function EmblaCarousel() {
             <img
               src={src}
               alt={`Slide ${index + 1}`}
+              loading="lazy"
               className="rounded-xl h-full w-full shadow-none hover:shadow-sm cursor-pointer border border-gray-200 max-h-full"
               style={{ objectFit: "cover" }}
             />
