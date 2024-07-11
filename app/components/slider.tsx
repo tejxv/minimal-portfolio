@@ -5,29 +5,30 @@ import useEmblaCarousel from "embla-carousel-react"
 import AutoScroll from "embla-carousel-auto-scroll"
 import { WheelGesturesPlugin } from "embla-carousel-wheel-gestures"
 import LoadingSkeleton from "./LoadingSkeleton"
+import Image from "next/image"
 
 const images = [
-  "/slider-images/P1.png",
-  "/slider-images/P2.png",
-  "/slider-images/P3.png",
-  "/slider-images/P4.png",
-  "/slider-images/P5.png",
-  "/slider-images/P6.png",
-  "/slider-images/P7.png",
-  "/slider-images/P8.png",
-  "/slider-images/P9.png",
-  "/slider-images/P10.png",
-  "/slider-images/P11.png",
-  "/slider-images/P12.png",
-  "/slider-images/P13.png",
-  "/slider-images/P14.png",
-  "/slider-images/P15.png",
-  "/slider-images/P16.png",
-  "/slider-images/P17.png",
-  "/slider-images/P18.png",
-  "/slider-images/P19.png",
-  "/slider-images/P20.png",
-  "/slider-images/P21.png",
+  { src: "/slider-images/P1.png", width: 300, height: 1000 },
+  { src: "/slider-images/P2.png", width: 400, height: 1000 },
+  { src: "/slider-images/P3.png", width: 1000, height: 1000 },
+  { src: "/slider-images/P4.png", width: 600, height: 1000 },
+  { src: "/slider-images/P5.png", width: 700, height: 1000 },
+  { src: "/slider-images/P6.png", width: 800, height: 1000 },
+  { src: "/slider-images/P7.png", width: 900, height: 1000 },
+  { src: "/slider-images/P8.png", width: 1000, height: 1000 },
+  { src: "/slider-images/P9.png", width: 1100, height: 1000 },
+  { src: "/slider-images/P10.png", width: 1200, height: 1000 },
+  { src: "/slider-images/P11.png", width: 1300, height: 1000 },
+  { src: "/slider-images/P12.png", width: 1400, height: 1000 },
+  { src: "/slider-images/P13.png", width: 11000, height: 1000 },
+  { src: "/slider-images/P14.png", width: 1600, height: 1000 },
+  { src: "/slider-images/P15.png", width: 1700, height: 1000 },
+  { src: "/slider-images/P16.png", width: 1800, height: 1000 },
+  { src: "/slider-images/P17.png", width: 1900, height: 1000 },
+  { src: "/slider-images/P18.png", width: 2000, height: 1000 },
+  { src: "/slider-images/P19.png", width: 2100, height: 1000 },
+  { src: "/slider-images/P20.png", width: 2200, height: 1000 },
+  { src: "/slider-images/P21.png", width: 2300, height: 1000 },
 ]
 
 const EmblaCarousel = () => {
@@ -65,18 +66,21 @@ const EmblaCarousel = () => {
       style={{ opacity }}
     >
       <div className="embla__container h-full">
-        {images.map((src, index) => (
+        {images.map(({ src, width, height }, index) => (
           <div
             key={index}
             className="embla__slide flex justify-center items-center h-full"
             style={{ transform: `rotate(${getRandomRotation()}deg)` }}
           >
-            <img
+            <Image
               src={src}
               alt={`Slide ${index + 1}`}
               loading="lazy"
-              className="rounded-xl h-full w-full shadow-none hover:shadow-sm cursor-ew-resize active:cursor-grabbing border border-gray-200 max-h-full"
+              className="rounded-xl h-full w-auto shadow-none hover:shadow-sm cursor-ew-resize active:cursor-grabbing border border-gray-200 max-h-full"
               style={{ objectFit: "cover" }}
+              width={width}
+              height={height}
+              sizes="100vw"
             />
           </div>
         ))}
