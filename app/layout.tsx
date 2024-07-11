@@ -9,6 +9,7 @@ import Footer from "./components/footer"
 import Header from "./components/header"
 import { baseUrl } from "./sitemap"
 import EmblaCarousel from "./components/slider"
+import HotjarScript from "./components/HotjarScript"
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -47,6 +48,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={GeistSans.className}>
+      <HotjarScript />
       <body className="antialiased max-w-full mx-4 lg:mx-auto">
         <Header />
         <EmblaCarousel />
