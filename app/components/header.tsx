@@ -15,7 +15,7 @@ export default function Header() {
           </div>
         </Link>
         <a
-          href="https://firebasestorage.googleapis.com/v0/b/marine2-f2279.appspot.com/o/Tejas_Resume.pdf?alt=media&token=513bad52-e66b-4f7b-a72c-213d540de13a"
+          href="https://firebasestorage.googleapis.com/v0/b/marine2-f2279.appspot.com/o/Tejas_Resume2024.pdf?alt=media&token=8c07c2b6-bd45-46cc-868b-8a6bc2fbad44"
           target="_blank"
           rel="noopener noreferrer"
         >
