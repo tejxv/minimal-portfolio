@@ -11,7 +11,20 @@ type WorkExperience = {
 const workExperiences: WorkExperience[] = [
   {
     title: "Product Designer",
-    company: "VegaTheta (Options trading startup)",
+    company: "Ultrablue – BlogPro",
+    location: "Remote",
+    duration: "Feb 2024 – Present",
+    responsibilities: [
+      "Led the design and development of complete user flows from scratch, creating all screens and ensuring optimal user experience based on feedback.",
+      "Established a comprehensive design system in Figma, streamlining the UI development process and ensuring consistency across the application",
+      "Integrated Tailwind CSS into the design, optimizing the front-end codebase for efficiency and maintainability.",
+      "Utilized advanced prototyping features in Figma to create interactive and realistic product demonstrations, facilitating effective design feedback and validation.",
+      "Implemented designs directly in Next.js, bridging the gap between design and development to ensure seamless integration and high-quality user interfaces.",
+    ],
+  },
+  {
+    title: "Product Designer",
+    company: "VegaTheta (Stealth Startup)",
     location: "Remote",
     duration: "Feb 2023 – Dec 2023",
     responsibilities: [
@@ -45,18 +58,6 @@ const workExperiences: WorkExperience[] = [
       "Engaged in copywriting for the website, ensuring that the content effectively communicated the intended message",
     ],
   },
-  {
-    title: "UI Design",
-    company: "DogeHouse.com",
-    location: "Open Source",
-    duration: "March 2021",
-    responsibilities: [
-      "Designed the entire DogeHouse.com website from start to finish in Figma",
-      "Designed a comprehensive design system as part of a team of three, ensuring consistent and coherent visual language throughout the website",
-      "Worked independently and as part of a team of three to efficiently solve design challenges",
-      "Coded the components for use in ReactJS",
-    ],
-  },
 ]
 
 const WorkExperienceComponent: React.FC = () => {
@@ -84,10 +85,10 @@ const WorkExperienceComponent: React.FC = () => {
               {experience.duration}
             </p>
           </div>
-          <div className="w-full text-neutral-500 mt-2">
+          <div className="w-full hidden text-neutral-500 mt-2">
             <ul>
               {experience.responsibilities.map((responsibility, i) => (
-                <li key={i} className="text-sm mb-0.5">
+                <li key={i} className="text-base mb-2">
                   · {responsibility}
                 </li>
               ))}
