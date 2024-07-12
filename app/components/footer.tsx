@@ -66,6 +66,17 @@ export default function Footer() {
             className="flex mr-2 items-center transition-all hover:text-neutral-800"
             rel="noopener noreferrer"
             target="_blank"
+            href="https://read.cv/tejxv"
+          >
+            <ArrowIcon />
+            <p className="ml-2 h-7">read.cv</p>
+          </a>
+        </li>
+        <li>
+          <a
+            className="flex mr-2 items-center transition-all hover:text-neutral-800"
+            rel="noopener noreferrer"
+            target="_blank"
             href="https://github.com/tejxv"
           >
             <ArrowIcon />
