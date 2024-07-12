@@ -7,6 +7,9 @@ const navItems = {
   "/blog": {
     name: "blog",
   },
+  "https://behance.net/tejxv": {
+    name: "projects",
+  },
 }
 
 export function Navbar() {
