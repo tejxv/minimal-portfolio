@@ -30,7 +30,7 @@ export default function Experience() {
         ,<br></br>
         <LinkWithImage
           href="https://www.google.com/search?q=rentit4me.com"
-          src="/icons/rentit4me.png"
+          src="/icons/rentit4me.jpeg"
           alt="rentit4me logo"
         >
           Rentit4me
