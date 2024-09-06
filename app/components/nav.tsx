@@ -4,9 +4,9 @@ const navItems = {
   "/": {
     name: "home",
   },
-  "/blog": {
-    name: "blog",
-  },
+  // "/blog": {
+  //   name: "blog",
+  // },
   "https://behance.net/tejxv": {
     name: "projects",
   },
@@ -14,7 +14,7 @@ const navItems = {
 
 export function Navbar() {
   return (
-    <aside className="-ml-[8px] mb-16 tracking-tight">
+    <aside className="-ml-[8px] hidden sm:block mb-16 tracking-tight">
       <div className="lg:sticky lg:top-20">
         <nav
           className="flex flex-row items-end relative px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative"

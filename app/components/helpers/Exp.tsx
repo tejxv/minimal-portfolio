@@ -23,6 +23,13 @@ const workExperiences: WorkExperience[] = [
     ],
   },
   {
+    title: "UI Designer - Contract",
+    company: "FinFloww",
+    location: "Remote",
+    duration: "Oct 2023 – Feb 2024",
+    responsibilities: [],
+  },
+  {
     title: "Product Designer",
     company: "VegaTheta (Stealth Startup)",
     location: "Remote",
@@ -62,7 +69,7 @@ const workExperiences: WorkExperience[] = [
 
 const WorkExperienceComponent: React.FC = () => {
   return (
-    <div className="border-t mt-8 pt-8">
+    <div className="border-t border-b mt-8 pt-8">
       {workExperiences.map((experience, index) => (
         <div
           key={index}

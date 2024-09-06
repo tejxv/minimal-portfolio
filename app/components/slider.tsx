@@ -33,7 +33,7 @@ const images = [
 
 const EmblaCarousel = () => {
   const [emblaRef] = useEmblaCarousel({ loop: true, dragFree: true }, [
-    AutoScroll({ speed: 0.8, stopOnInteraction: false, startDelay: 0 }),
+    AutoScroll({ speed: 0.8, stopOnInteraction: true, startDelay: 0 }),
     WheelGesturesPlugin(),
   ])
   const [isLoading, setIsLoading] = useState(true)

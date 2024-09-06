@@ -1,6 +1,7 @@
 import { BlogPosts } from "app/components/posts"
 import Education from "./components/education"
 import Experience from "./components/experience"
+import Contact from "./components/contact"
 
 export default function Page() {
   return (
@@ -19,8 +20,11 @@ export default function Page() {
       <div className="my-8">
         <Experience />
       </div>
-      <div className="my-8">
+      {/* <div className="my-8">
         <Education />
+      </div> */}
+      <div className="my-8">
+        <Contact />
       </div>
       {/* <div className="my-8">
         <BlogPosts />
