@@ -35,7 +35,10 @@ export default function Experience() {
         >
           Rentit4me
         </LinkWithImage>{" "}
-        , a shark tank featured startup, to revamp their designs.
+        , a shark tank featured startup, to revamp their designs. I also take on freelance projects in product design,{" "}
+        <a href="mailto:your-email@example.com" className="border-b hover:border-b-2">
+          Let's connect, 
+        </a>{" "}if you up for a collab!
       </p>
       <WorkExperienceComponent />
     </section>

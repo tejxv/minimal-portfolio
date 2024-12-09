@@ -10,6 +10,8 @@ import Image from "next/image"
 const images = [
   { src: "/slider-images/P0.png", width: 1920, height: 1080, subtitle: "Blog design and layout for BlogPro" },
   { src: "/slider-images/P1.png", width: 1246, height: 1000, subtitle: "Revenue dashboard design" },
+  { src: "/slider-images/P22.png", width: 1920, height: 1000, subtitle: "Blinkit's navigation exploration" },
+  { src: "/slider-images/P23.png", width: 1080, height: 1080, subtitle: "Blinkit's navigation exploration" },
   { src: "/slider-images/P2.png", width: 1600, height: 1000, subtitle: "Hero redesign for pureplate" },
   { src: "/slider-images/P3.png", width: 1600, height: 1000, subtitle: "If Spotlight was a third party tool" },
   { src: "/slider-images/P4.png", width: 1600, height: 1000, subtitle: "If Terminal was a third party tool" },
