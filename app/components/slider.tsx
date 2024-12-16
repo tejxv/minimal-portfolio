@@ -109,6 +109,8 @@ const EmblaCarousel = () => {
                   filter: loadedImages[index] ? 'none' : 'blur(10px)'
                 }}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                // quality={100}
+                unoptimized
               />
               {subtitle && (
                 <div className="absolute bottom-2 left-2 bg-black/30 backdrop-blur text-white px-2 py-1 rounded-md text-xs md:text-sm z-10">
