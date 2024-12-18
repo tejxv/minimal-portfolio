@@ -9,6 +9,7 @@ import Image from "next/image"
 
 const images = [
   { src: "/slider-images/P0.png", width: 1920, height: 1080, subtitle: "Blog design and layout for BlogPro" },
+  { src: "/slider-images/P24.png", width: 1860, height: 1860, subtitle: "iOS Music Sharing App" },
   { src: "/slider-images/P1.png", width: 1246, height: 1000, subtitle: "Revenue dashboard design" },
   { src: "/slider-images/P22.png", width: 1920, height: 1000, subtitle: "Blinkit's navigation exploration" },
   { src: "/slider-images/P23.png", width: 1080, height: 1080, subtitle: "Blinkit's navigation exploration" },
