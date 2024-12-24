@@ -76,7 +76,7 @@ const EmblaCarousel = () => {
 
   return (
     <div
-      className={`embla mx-auto mb-10 max-w-full rounded-lg h-[440px] transition-opacity duration-1000 ease-in-out`}
+      className={`embla mx-auto mb-10 max-w-full rounded-lg h-[190px] md:h-[440px] transition-opacity duration-1000 ease-in-out`}
       ref={emblaRef}
       style={{ opacity }}
     >
