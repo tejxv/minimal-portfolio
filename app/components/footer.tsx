@@ -37,76 +37,32 @@ function RssIcon() {
   )
 }
 
+const socialLinks = [
+  { name: "twitter", url: "https://x.com/tejxv" },
+  { name: "linkedin", url: "https://www.linkedin.com/in/tejas-u/" },
+  { name: "read.cv", url: "https://read.cv/tejxv" },
+  { name: "github", url: "https://github.com/tejxv" },
+  { name: "figma", url: "https://figma.com/@tejas" },
+  { name: "behance", url: "https://behance.com/tejxv" },
+]
+
 export default function Footer() {
   return (
     <footer className="mb-16">
       <ul className="font-sm mt-8 flex flex-col text-neutral-500 md:flex-row md:space-y-0">
-        <li>
-          <a
-            className="flex mr-2 items-center transition-all hover:text-neutral-800"
-            rel="noopener noreferrer"
-            target="_blank"
-            href="https://x.com/tejxv"
-          >
-            <ArrowIcon />
-            <p className="ml-2 h-7">twitter</p>
-          </a>
-        </li>
-        <li>
-          <a
-            className="flex mr-2 items-center transition-all hover:text-neutral-800"
-            rel="noopener noreferrer"
-            target="_blank"
-            href="https://behance.com/tejxv"
-          >
-            <ArrowIcon />
-            <p className="ml-2 h-7">behance</p>
-          </a>
-        </li>
-        <li>
-          <a
-            className="flex mr-2 items-center transition-all hover:text-neutral-800"
-            rel="noopener noreferrer"
-            target="_blank"
-            href="https://www.linkedin.com/in/tejas-u/"
-          >
-            <ArrowIcon />
-            <p className="ml-2 h-7">linkedin</p>
-          </a>
-        </li>
-        <li>
-          <a
-            className="flex mr-2 items-center transition-all hover:text-neutral-800"
-            rel="noopener noreferrer"
-            target="_blank"
-            href="https://read.cv/tejxv"
-          >
-            <ArrowIcon />
-            <p className="ml-2 h-7">read.cv</p>
-          </a>
-        </li>
-        <li>
-          <a
-            className="flex mr-2 items-center transition-all hover:text-neutral-800"
-            rel="noopener noreferrer"
-            target="_blank"
-            href="https://github.com/tejxv"
-          >
-            <ArrowIcon />
-            <p className="ml-2 h-7">github</p>
-          </a>
-        </li>
-        <li>
-          <a
-            className="flex mr-2 items-center transition-all hover:text-neutral-800"
-            rel="noopener noreferrer"
-            target="_blank"
-            href="https://figma.com/@tejas"
-          >
-            <ArrowIcon />
-            <p className="ml-2 h-7">figma</p>
-          </a>
-        </li>
+        {socialLinks.map((link) => (
+          <li key={link.name}>
+            <a
+              className="flex px-2 py-1 items-center rounded-full group transition-all hover:shadow-sm hover:text-white hover:bg-blue-500"
+              rel="noopener noreferrer"
+              target="_blank"
+              href={link.url}
+            >
+              <ArrowIcon />
+              <p className="ml-2 transition-transform">{link.name}</p>
+            </a>
+          </li>
+        ))}
       </ul>
       <p className="my-8 text-neutral-500">
         © {new Date().getFullYear()} Developed by Tejas <br></br>
