@@ -10,10 +10,17 @@ type WorkExperience = {
 
 const workExperiences: WorkExperience[] = [
   {
+    title: "Lead Product Designer",
+    company: "Superboard.xyz",
+    location: "Bengaluru",
+    duration: "Jan 2025 – Present",
+    responsibilities: [],
+  },
+  {
     title: "Product Designer",
-    company: "Ultrablue – BlogPro",
+    company: "Ultrablue – BlogPro",
     location: "Remote",
-    duration: "Feb 2024 – Present",
+    duration: "Feb 2024 – Dec 2024",
     responsibilities: [
       "Led the design and development of complete user flows from scratch, creating all screens and ensuring optimal user experience based on feedback.",
       "Established a comprehensive design system in Figma, streamlining the UI development process and ensuring consistency across the application",
@@ -39,7 +46,7 @@ const workExperiences: WorkExperience[] = [
       "Established a comprehensive design system in Figma, streamlining the UI development process and ensuring consistency across the application",
       "Incorporated Tailwind CSS into the design, optimizing the front-end codebase for efficiency and maintainability",
       "Utilized advanced prototyping features in Figma to create interactive and realistic product demonstrations, facilitating effective design feedback and validation",
-      "Demonstrated keen attention to detail by identifying and resolving numerous front-end code bugs, enhancing the application’s performance and user satisfaction",
+      "Demonstrated keen attention to detail by identifying and resolving numerous front-end code bugs, enhancing the application's performance and user satisfaction",
     ],
   },
   {

@@ -1,3 +1,5 @@
+import { LiquidLogo } from "./LiquidLogo"
+
 function ArrowIcon() {
   return (
     <svg
@@ -95,7 +97,7 @@ export default function Footer() {
           </a>
         </li>
       </ul>
-      <p className="mt-8 text-neutral-500">
+      <p className="my-8 text-neutral-500">
         © {new Date().getFullYear()} Developed by Tejas <br></br>
         <span className="text-neutral-400 text-sm">
           Built with Next.js, Tailwind CSS, and Vercel.
@@ -111,6 +113,19 @@ export default function Footer() {
           </a>
         </span>
       </p>
+      {/* <div style={{ maxWidth: "600px", margin: "0 auto" }}>
+        <LiquidLogo
+          image="/icons/apple.svg" // URL or path to your logo image
+          // Optional: override default shader parameters:
+          patternScale={3}
+          refraction={0.02}
+          edge={0.5}
+          patternBlur={0.007}
+          liquid={0.08}
+          speed={0.4}
+          style={{ width: "100%", height: "auto" }}
+        />
+      </div> */}
     </footer>
   )
 }

@@ -8,10 +8,10 @@ export default function Contact() {
         {`Excited to collaborate? Drop me a message, and let's chat!`}{" "}
         <span className="group inline-block">
           <a
-            href="mailto:tejxv@duck.com"
-            className="px-3 py-2 inline-block mt-4 font-medium text-white bg-blue-500 rounded-xl hover:bg-blue-600"
+            href="mailto:tejas@superboard.xyz"
+            className="px-3 py-2 inline-block mt-4 font-medium text-white bg-blue-500 rounded-full hover:bg-blue-600"
           >
-            tejxv@duck.com
+            tejas@superboard.xyz
           </a>{" "}
           <span className="hidden text-sm group-hover:inline">
             {" "}
