@@ -46,6 +46,17 @@ export default function Footer() {
             className="flex mr-2 items-center transition-all hover:text-neutral-800"
             rel="noopener noreferrer"
             target="_blank"
+            href="https://x.com/tejxv"
+          >
+            <ArrowIcon />
+            <p className="ml-2 h-7">twitter</p>
+          </a>
+        </li>
+        <li>
+          <a
+            className="flex mr-2 items-center transition-all hover:text-neutral-800"
+            rel="noopener noreferrer"
+            target="_blank"
             href="https://behance.com/tejxv"
           >
             <ArrowIcon />

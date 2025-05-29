@@ -1,8 +1,8 @@
-import { BlogPosts } from "app/components/posts"
-import Education from "./components/education"
+// import { BlogPosts } from "app/components/posts"
+// import Education from "./components/education"
 import Experience from "./components/experience"
 import Contact from "./components/contact"
-import SelectedWorks from "./components/SelectedWorks"
+// import SelectedWorks from "./components/SelectedWorks"
 
 export default function Page() {
   return (
