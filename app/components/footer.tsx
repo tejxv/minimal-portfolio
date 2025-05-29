@@ -1,4 +1,4 @@
-import { LiquidLogo } from "./LiquidLogo"
+// import { LiquidLogo } from "./LiquidLogo"
 
 function ArrowIcon() {
   return (
