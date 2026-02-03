@@ -1,4 +1,5 @@
 // import { LiquidLogo } from "./LiquidLogo"
+import SpotifyNowPlaying from "./SpotifyNowPlaying"
 
 function ArrowIcon() {
   return (
@@ -49,6 +50,7 @@ const socialLinks = [
 export default function Footer() {
   return (
     <footer className="mb-16">
+      <SpotifyNowPlaying />
       <ul className="font-sm mt-8 flex flex-col text-neutral-500 md:flex-row md:space-y-0">
         {socialLinks.map((link) => (
           <li key={link.name}>
