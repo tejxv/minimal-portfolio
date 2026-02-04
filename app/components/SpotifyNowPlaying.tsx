@@ -215,7 +215,7 @@ export default function SpotifyNowPlaying() {
               >
                 {payload.title}
               </a>
-              <p className="truncate text-sm text-neutral-500">
+              <p className="truncate text-sm text-neutral-500 w-full">
                 {payload.artist}
                 {payload.album && payload.album !== payload.title
                   ? ` · ${payload.album}`
