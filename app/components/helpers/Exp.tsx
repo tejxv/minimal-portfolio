@@ -1,12 +1,13 @@
-import React from "react"
+import React from "react";
 
 type WorkExperience = {
-  title: string
-  company: string
-  location: string
-  duration: string
-  responsibilities: string[]
-}
+  title: string;
+  company: string;
+  location: string;
+  duration: string;
+  responsibilities: string[];
+  url?: string;
+};
 
 const workExperiences: WorkExperience[] = [
   {
@@ -15,6 +16,7 @@ const workExperiences: WorkExperience[] = [
     location: "Bengaluru",
     duration: "Jan 2025 – Present",
     responsibilities: [],
+    url: "https://superboard.xyz/",
   },
   {
     title: "Product Designer",
@@ -28,6 +30,7 @@ const workExperiences: WorkExperience[] = [
       "Utilized advanced prototyping features in Figma to create interactive and realistic product demonstrations, facilitating effective design feedback and validation.",
       "Implemented designs directly in Next.js, bridging the gap between design and development to ensure seamless integration and high-quality user interfaces.",
     ],
+    url: "https://blogpro.so/",
   },
   {
     title: "UI Designer - Contract",
@@ -35,6 +38,7 @@ const workExperiences: WorkExperience[] = [
     location: "Remote",
     duration: "Oct 2023 – Feb 2024",
     responsibilities: [],
+    url: "https://x.com/FinFloww",
   },
   {
     title: "Product Designer",
@@ -72,46 +76,74 @@ const workExperiences: WorkExperience[] = [
       "Engaged in copywriting for the website, ensuring that the content effectively communicated the intended message",
     ],
   },
-]
+];
 
 const WorkExperienceComponent: React.FC = () => {
   return (
     <div className="border-t border-b mt-8 pt-8">
-      {workExperiences.map((experience, index) => (
-        <div
-          key={index}
-          style={{ marginBottom: "40px" }}
-          className="flex flex-col"
-        >
-          <div className="w-full flex items-baseline justify-between">
-            <h3 className="text-neutral-600 font-semibold">
-              {experience.title}{" "}
-              <span className="font-normal text-neutral-500">
-                - {experience.company}
-              </span>
-            </h3>
-            <p className="text-sm rounded-full border border-slate-100 px-2 py-0.5 bg-slate-50 text-neutral-500">
-              {experience.location}
-            </p>
-          </div>
-          <div className="w-full flex justify-between">
-            <p className="text-sm text-neutral-500 mt-0.5">
-              {experience.duration}
-            </p>
-          </div>
-          <div className="w-full hidden text-neutral-500 mt-2">
-            <ul>
-              {experience.responsibilities.map((responsibility, i) => (
-                <li key={i} className="text-base mb-2">
-                  · {responsibility}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      ))}
-    </div>
-  )
-}
+      {workExperiences.map((experience, index) => {
+        const ExperienceCard = experience.url ? "a" : "div";
+        const linkProps = experience.url
+          ? {
+              href: experience.url,
+              target: "_blank",
+              rel: "noopener noreferrer",
+              className:
+                "flex flex-col group hover:bg-neutral-100 transition-colors rounded-lg p-3 -m-3 relative",
+            }
+          : { className: "flex flex-col" };
 
-export default WorkExperienceComponent
+        return (
+          <ExperienceCard
+            key={index}
+            style={{ marginBottom: "40px" }}
+            {...linkProps}
+          >
+            {experience.url && (
+              <svg
+                className="absolute bottom-3 right-3 w-4 h-4 text-neutral-400 opacity-0 group-hover:opacity-100 transition-opacity"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M7 17L17 7M17 7H7M17 7V17"
+                />
+              </svg>
+            )}
+            <div className="w-full flex items-baseline justify-between">
+              <h3 className="text-neutral-600 font-semibold">
+                {experience.title}{" "}
+                <span className="font-normal text-neutral-500">
+                  - {experience.company}
+                </span>
+              </h3>
+              <p className="text-sm rounded-full border border-slate-100 px-2 py-0.5 bg-slate-50 text-neutral-500">
+                {experience.location}
+              </p>
+            </div>
+            <div className="w-full flex justify-between">
+              <p className="text-sm text-neutral-500 mt-0.5">
+                {experience.duration}
+              </p>
+            </div>
+            <div className="w-full hidden text-neutral-500 mt-2">
+              <ul>
+                {experience.responsibilities.map((responsibility, i) => (
+                  <li key={i} className="text-base mb-2">
+                    · {responsibility}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </ExperienceCard>
+        );
+      })}
+    </div>
+  );
+};
+
+export default WorkExperienceComponent;
