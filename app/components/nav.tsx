@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const navItems = {
+const navItems: Record<string, { name: string }> = {
   // "/": {
   //   name: "home",
   // },
