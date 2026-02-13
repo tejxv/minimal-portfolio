@@ -1,5 +1,5 @@
-import LinkWithImage from "./helpers/LinkWithImage"
-import WorkExperienceComponent from "./helpers/Exp"
+import LinkWithImage from "./helpers/LinkWithImage";
+import WorkExperienceComponent from "./helpers/Exp";
 
 export default function Experience() {
   return (
@@ -17,7 +17,12 @@ export default function Experience() {
         >
           Superboard.xyz
         </LinkWithImage>{" "}
-        since January 2025. <br />
+        since January 2025, where I handle everything from design to
+        development. Every visual, animation, and interaction you see on
+        Superboard is designed and coded by me — bringing designs to life with
+        Framer Motion and GSAP, and converting them into production-ready code.
+        I'm having fun solving some of the most interesting problems and trying
+        to bring delight to web3 users. <br />
         <br />
         In the past, I've collaborated with{" "}
         <LinkWithImage
@@ -55,5 +60,5 @@ export default function Experience() {
       </p>
       <WorkExperienceComponent />
     </section>
-  )
+  );
 }

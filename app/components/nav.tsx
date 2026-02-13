@@ -1,16 +1,16 @@
-import Link from "next/link"
+import Link from "next/link";
 
 const navItems = {
-  "/": {
-    name: "home",
-  },
+  // "/": {
+  //   name: "home",
+  // },
   // "/blog": {
   //   name: "blog",
   // },
-  "https://behance.net/tejxv": {
-    name: "projects",
-  },
-}
+  // "https://behance.net/tejxv": {
+  //   name: "projects",
+  // },
+};
 
 export function Navbar() {
   return (
@@ -30,11 +30,11 @@ export function Navbar() {
                 >
                   {name}
                 </Link>
-              )
+              );
             })}
           </div>
         </nav>
       </div>
     </aside>
-  )
+  );
 }
