@@ -10,18 +10,19 @@ export default function Header() {
               Tejas
             </h1>
             <h3 className="ml-2 text-xl text-neutral-400 tracking-tight">
-              Product Designer
+              Design Engineer
             </h3>
           </div>
         </Link>
         <a
-          href="https://firebasestorage.googleapis.com/v0/b/marine2-f2279.appspot.com/o/Tejas_Resume2024.pdf?alt=media&token=8c07c2b6-bd45-46cc-868b-8a6bc2fbad44"
+          href="/assets/Tejas_2026.pdf"
           target="_blank"
           rel="noopener noreferrer"
+          className="group"
         >
-          <div className="text-neutral-400 cursor-pointer hover:text-neutral-900">
+          <div className="text-neutral-400 cursor-pointer group-hover:text-neutral-900">
             Resume{" "}
-            <span className="border rounded-lg font-medium text-sm py-0.5 px-1.5">
+            <span className="border rounded-lg group-hover:bg-neutral-200 font-medium text-sm py-0.5 px-1.5">
               PDF
             </span>
           </div>

@@ -33,6 +33,14 @@
 
 html {
   min-width: 360px;
+  /* The work grid breaks out to full-bleed via a 50vw negative margin
+     (see work-grid-section.tsx). `scrollbar-gutter: stable` permanently
+     reserves the scrollbar gutter so `vw` units equal the content width — this
+     is what kills the 16px phantom h-scroll and the left/right drift. `clip` is
+     a belt-and-suspenders cap that never makes html a scroll container, so the
+     sticky nav keeps working (unlike overflow-x: hidden). */
+  scrollbar-gutter: stable;
+  overflow-x: clip;
 }
 
 
@@ -41,17 +49,32 @@ html {
   text-wrap: balance;
 }
 
-.embla {
-  overflow: hidden;
+/* Base paragraph size: 14px (down from Tailwind's 16px text-base). Bare rule —
+   low specificity, so any explicit text-sm/text-xs utility on a <p> still wins. */
+p {
+  font-size: 14px;
 }
 
-.embla__container {
-  display: flex;
+/* Trim the video.js MinimalVideoSkin in the lightbox down to play + scrub +
+   fullscreen. The skin has no props to toggle controls, so hide the unwanted
+   buttons by their stable class names (scoped to .lightbox-video). */
+.lightbox-video .media-button--seek,
+.lightbox-video .media-button--mute,
+.lightbox-video .media-button--pip,
+.lightbox-video .media-button--playback-rate {
+  display: none !important;
 }
 
-.embla__slide {
-  flex: 0 0 auto;
-  min-width: 0;
-  max-width: 100%;
-  margin-right: 20px;
+
+/* View Transition morph for the work-grid lightbox (see work-grid.tsx).
+   The clicked grid image and the overlay image share the name
+   `active-lightbox-image`, handed between them per snapshot, so the browser
+   tweens one into the other on open/close (and morphs between slides on
+   prev/next). Timing only — gated to no-preference so reduced-motion users get
+   an instant open with no animation. */
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-group(active-lightbox-image) {
+    animation-duration: 300ms;
+    animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
 }

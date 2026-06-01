@@ -9,7 +9,7 @@ export default function Experience() {
         </h1> //might use for seo for names - tejas */}
       <h1 className="font-semibold text-2xl mb-8 tracking-tight">Experience</h1>
       <p className="mb-4 text-neutral-500">
-        Working as a Lead Product Designer for{" "}
+        Working as a Design Engineer at{" "}
         <LinkWithImage
           href="https://superboard.xyz/"
           src="/icons/superboard.png"
@@ -17,12 +17,11 @@ export default function Experience() {
         >
           Superboard.xyz
         </LinkWithImage>{" "}
-        since January 2025, where I handle everything from design to
-        development. Every visual, animation, and interaction you see on
-        Superboard is designed and coded by me — bringing designs to life with
-        Framer Motion and GSAP, and converting them into production-ready code.
-        I'm having fun solving some of the most interesting problems and trying
-        to bring delight to web3 users. <br />
+        since January 2025, contributing across design and frontend
+        development. I design and build product experiences, from visual systems
+        and interactions to production-ready implementations using code.
+        Currently focused on making web3 more intuitive and enjoyable to use.{" "}
+        <br />
         <br />
         In the past, I've collaborated with{" "}
         <LinkWithImage
@@ -32,7 +31,7 @@ export default function Experience() {
         >
           BlogPro
         </LinkWithImage>{" "}
-        as a Product Designer + UI Engineer (Feb 2024 - Dec 2024),{" "}
+        as a Founding Product Designer (Feb 2024 - Dec 2024),{" "}
         <LinkWithImage
           href="https://twitter.com/FinFloww/"
           src="/icons/finfloww.jpg"

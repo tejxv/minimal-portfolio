@@ -17,27 +17,6 @@ function ArrowIcon() {
     </svg>
   )
 }
-function RssIcon() {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="16"
-      height="16"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      className="lucide translate-y-0.5 lucide-rss"
-    >
-      <path d="M4 11a9 9 0 0 1 9 9" />
-      <path d="M4 4a16 16 0 0 1 16 16" />
-      <circle cx="5" cy="19" r="1" />
-    </svg>
-  )
-}
-
 const socialLinks = [
   { name: "twitter", url: "https://x.com/tejxv" },
   { name: "linkedin", url: "https://www.linkedin.com/in/tejas-u/" },
@@ -70,16 +49,6 @@ export default function Footer() {
         © {new Date().getFullYear()} Developed by Tejas <br></br>
         <span className="text-neutral-400 text-sm">
           Built with Next.js, Tailwind CSS, and Vercel.
-          <a
-            className="items-center transition-all w-min hover:text-neutral-800"
-            rel="noopener noreferrer"
-            target="_blank"
-            href="/rss"
-          >
-            <span className="ml-2 inline-block">
-              <RssIcon />
-            </span>
-          </a>
         </span>
       </p>
       {/* <div style={{ maxWidth: "600px", margin: "0 auto" }}>

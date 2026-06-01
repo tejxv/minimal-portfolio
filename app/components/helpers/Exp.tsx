@@ -11,7 +11,7 @@ type WorkExperience = {
 
 const workExperiences: WorkExperience[] = [
   {
-    title: "Lead Product Designer",
+    title: "Design Engineer",
     company: "Superboard.xyz",
     location: "Bengaluru",
     duration: "Jan 2025 – Present",
@@ -19,7 +19,7 @@ const workExperiences: WorkExperience[] = [
     url: "https://superboard.xyz/",
   },
   {
-    title: "Product Designer",
+    title: "Founding Product Designer",
     company: "Ultrablue – BlogPro",
     location: "Remote",
     duration: "Feb 2024 – Dec 2024",

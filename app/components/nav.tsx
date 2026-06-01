@@ -14,13 +14,13 @@ const navItems: Record<string, { name: string }> = {
 
 export function Navbar() {
   return (
-    <aside className="-ml-[8px] hidden sm:block mb-16 tracking-tight">
+    <aside className="hidden sm:block mb-16 tracking-tight">
       <div className="lg:sticky lg:top-20">
         <nav
           className="flex flex-row items-end relative px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative"
           id="nav"
         >
-          <div className="flex flex-col justify-end space-x-0 pr-10">
+          <div className="flex flex-col justify-end space-x-0">
             {Object.entries(navItems).map(([path, { name }]) => {
               return (
                 <Link
