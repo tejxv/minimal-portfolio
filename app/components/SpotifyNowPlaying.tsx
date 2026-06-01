@@ -257,10 +257,12 @@ export default function SpotifyNowPlaying() {
                     alt={payload.album ?? payload.title}
                     className="h-full w-full object-cover transition-all"
                   />
-                  {/* persistent sheen — soft diagonal highlight in the top-left
-                      plus a thin glare band, both static (always visible) */}
+                  {/* persistent sheen — soft diagonal highlight + thin glare
+                      band. Oversized (-inset-4) so the group-hover translate
+                      sweeps the light across without exposing an unlit edge
+                      (parent clips via overflow-hidden). */}
                   <div
-                    className="pointer-events-none absolute inset-0"
+                    className="pointer-events-none absolute -inset-4 transition-transform duration-500 ease-out group-hover:translate-x-3 group-hover:-translate-y-2"
                     style={{
                       background:
                         "linear-gradient(135deg, rgba(255,255,255,0.28) 0%, rgba(255,255,255,0.08) 20%, transparent 42%), linear-gradient(115deg, transparent 38%, rgba(255,255,255,0.18) 48%, rgba(255,255,255,0.18) 52%, transparent 62%)",

@@ -1,12 +1,12 @@
 import "./global.css"
 import type { Metadata } from "next"
-import { GeistSans } from "geist/font/sans"
-import { GeistMono } from "geist/font/mono"
+import { openRunde, wastedYear } from "./fonts"
 import { Navbar } from "./components/nav"
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import Footer from "./components/footer"
 import Header from "./components/header"
+import NowInBengaluru from "./components/now-in-bengaluru"
 import { baseUrl } from "./sitemap"
 import DevToolbar from "./components/dev-toolbar"
 
@@ -46,7 +46,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={GeistSans.className}>
+    <html
+      lang="en"
+      className={`${openRunde.variable} ${wastedYear.variable}`}
+    >
       <body className="antialiased max-w-full mx-4 lg:mx-auto">
         <Header />
         <main className="flex-auto mx-auto min-w-0 max-w-xl justify-center flex flex-col px-2 md:px-0">
@@ -55,6 +58,7 @@ export default function RootLayout({
             {children}
           </div>
           <Footer />
+          <NowInBengaluru />
           <SpeedInsights />
           <Analytics />
         </main>

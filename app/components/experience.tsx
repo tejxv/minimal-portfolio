@@ -1,5 +1,6 @@
 import LinkWithImage from "./helpers/LinkWithImage";
 import WorkExperienceComponent from "./helpers/Exp";
+import Heading from "./heading";
 
 export default function Experience() {
   return (
@@ -7,7 +8,7 @@ export default function Experience() {
       {/* <h1 className="mb-8 text-2xl font-semibold tracking-tighter">
           My Portfolio
         </h1> //might use for seo for names - tejas */}
-      <h1 className="font-semibold text-2xl mb-8 tracking-tight">Experience</h1>
+      <Heading>Experience</Heading>
       <p className="mb-4 text-neutral-500">
         Working as a Design Engineer at{" "}
         <LinkWithImage

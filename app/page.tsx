@@ -3,6 +3,7 @@
 import Experience from "./components/experience"
 import Contact from "./components/contact"
 import WorkGridSection from "./components/work-grid-section"
+import Heading from "./components/heading"
 // import SectionRail from "./components/section-rail"
 // import SelectedWorks from "./components/SelectedWorks"
 
@@ -13,15 +14,11 @@ export default function Page() {
       {/* <h1 className="mb-8 text-2xl font-semibold tracking-tighter">
         My Portfolio
       </h1> //might use for seo for names - tejas */}
-      <h1
-        id="about"
-        className="font-semibold text-2xl mb-8 tracking-tight scroll-mt-24"
-      >
+      <Heading id="about" className="hidden scroll-mt-24">
         About me
-      </h1>
+      </Heading>
       <p className="mb-4 text-neutral-500">
-        I'm Tejas Upadhyay, a design engineer who loves to code. I'm currently
-        working at{" "}
+        I&apos;m Tejas Upadhyay, a designer who loves to code. Currently at{" "}
         <a
           href="https://superboard.xyz"
           target="_blank"
@@ -30,11 +27,18 @@ export default function Page() {
         >
           Superboard.xyz
         </a>
-        , a web3 startup.
-        <br></br> My passion is creating experiences at the intersection of art,
-        design, and accessibility.
+        , I spend my time designing and building products that feel thoughtful,
+        expressive, and accessible. Lately, I&apos;ve been burning an
+        unreasonable number of tokens with Claude.
       </p>
-      <div id="work" className="scroll-mt-24">
+      <div id="work" className="mb-10 flex flex-wrap gap-3 scroll-mt-24">
+        <a
+          href="mailto:hi@tejasdesign.in"
+          className="inline-flex items-center rounded-full bg-neutral-900 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-neutral-700"
+        >
+          hi@tejasdesign.in
+        </a>
+        
         <WorkGridSection />
       </div>
       <div id="experience" className="my-8 scroll-mt-24">

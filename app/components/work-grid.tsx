@@ -158,6 +158,9 @@ export default function WorkGrid({ items }: { items: Work[] }) {
   // Keyboard + scroll lock while open.
   useEffect(() => {
     if (!open) return
+    // Signal that an item overlay is open so parent gallery can coordinate
+    // Escape handling (close item first, gallery second).
+    document.body.dataset.galleryItemOpen = "true"
 
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -184,6 +187,7 @@ export default function WorkGrid({ items }: { items: Work[] }) {
       html.style.overflow = prevOverflow
       html.style.scrollbarGutter = prevGutter
       triggerRef.current?.focus()
+      delete document.body.dataset.galleryItemOpen
     }
   }, [open, close, go])
 
@@ -203,7 +207,7 @@ export default function WorkGrid({ items }: { items: Work[] }) {
             aria-label={
               item.caption ? `View: ${item.caption}` : `View item ${i + 1}`
             }
-            className="group relative mb-3 block w-full cursor-default break-inside-avoid overflow-hidden rounded-xl border border-neutral-200 bg-neutral-50 transition-transform duration-200 ease-out active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+            className="group relative mb-3 block w-full cursor-default break-inside-avoid overflow-hidden rounded-none border border-neutral-50 hover:border-neutral-100 bg-neutral-50 transition-transform duration-200 ease-out active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
           >
             {item.kind === "video" ? (
               <GridVideo

@@ -33,6 +33,7 @@
 
 html {
   min-width: 360px;
+  scroll-behavior: smooth;
   /* The work grid breaks out to full-bleed via a 50vw negative margin
      (see work-grid-section.tsx). `scrollbar-gutter: stable` permanently
      reserves the scrollbar gutter so `vw` units equal the content width — this
@@ -41,6 +42,94 @@ html {
      sticky nav keeps working (unlike overflow-x: hidden). */
   scrollbar-gutter: stable;
   overflow-x: clip;
+}
+
+/* Compass needle spin. transform-box: fill-box pins the rotation origin to the
+   polygon's own bbox center (== 12,12, the circle center, since the shape is
+   symmetric). The back-out bezier overshoots slightly for a spring feel,
+   approximating the framer-motion spring it replaces. */
+[data-compass-needle] {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.compass-host:hover [data-compass-needle] {
+  transform: rotate(360deg);
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-compass-needle] {
+    transition: none;
+  }
+}
+
+/* Grip icon ripple. Each dot fades 1 -> 0.3 -> 1; --i (set inline per circle)
+   staggers the start so the pulse waves across the grid. `both` holds the
+   final frame, alternate-free so it settles back at opacity 1. Driven by the
+   host button's hover — no JS, no framer-motion. */
+@keyframes grip-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+[data-grip-dot] {
+  /* Negative delay (not positive) keeps a permanent phase offset across every
+     loop iteration — a positive delay only offsets the first cycle, after
+     which all dots re-sync. This gives a continuous traveling wave. */
+  animation: grip-pulse 1.6s ease-in-out infinite;
+  animation-delay: calc(var(--i) * -0.16s);
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-grip-dot] {
+    animation: none;
+  }
+}
+
+/* Gallery blur: when the work-gallery overlay is mounted (data-gallery-open on
+   body), blur every direct body child EXCEPT the overlay itself. Transition
+   stays on the elements permanently so both enter + exit animate. */
+body > *:not([data-gallery-overlay]) {
+  transition: filter 400ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+body[data-gallery-open="true"] > *:not([data-gallery-overlay]) {
+  filter: blur(16px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+@keyframes rip-float {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 30%) scale(0.65);
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -70%) scale(1);
+  }
+}
+
+.rip-burst {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 0;
+  pointer-events: none;
+  white-space: nowrap;
+  font-size: 0.875rem;
+  line-height: 1;
+  color: #7f1d1d;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.65);
+  animation: rip-float 900ms ease-out forwards;
 }
 
 
