@@ -3,7 +3,10 @@ import Link from "next/link"
 export default function Header() {
   return (
     <>
-      <div className="mt-6 flex justify-between mx-auto max-w-xl flex-row align-center items-baseline w-full">
+      <div
+        data-reveal
+        className="mt-4 sm:mt-64 flex justify-between mx-auto max-w-xl flex-row align-center items-baseline w-full"
+      >
         <Link href="/">
           {/* Both font variants live in the SAME grid cell (col/row-start-1),
               so the cell always sizes to the WIDER one (wasted) — swapping

@@ -1,5 +1,6 @@
 // import { BlogPosts } from "app/components/posts"
 // import Education from "./components/education"
+import type { CSSProperties } from "react"
 import Experience from "./components/experience"
 import Contact from "./components/contact"
 import WorkGridSection from "./components/work-grid-section"
@@ -9,7 +10,7 @@ import Heading from "./components/heading"
 
 export default function Page() {
   return (
-    <section>
+    <section data-reveal style={{ "--reveal-offset": 2 } as CSSProperties}>
       {/* <SectionRail /> */}
       {/* <h1 className="mb-8 text-2xl font-semibold tracking-tighter">
         My Portfolio

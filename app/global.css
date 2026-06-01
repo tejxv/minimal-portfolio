@@ -44,6 +44,35 @@ html {
   overflow-x: clip;
 }
 
+/* Staggered blur-in reveal. Each direct child of a [data-reveal] container
+   animates in, offset by its position via the CSS sibling-index() function
+   (1-indexed, no args) — no per-element inline delays or JS needed. A parent
+   can push its whole cascade later by setting --reveal-offset. `backwards`
+   fill applies the from-state before the delay elapses so nothing flashes
+   un-blurred first. If a browser lacks sibling-index(), the calc() is invalid
+   and dropped → every child reveals at delay 0 (simultaneous, still fine). */
+@keyframes reveal-blur {
+  from {
+    opacity: 0;
+    filter: blur(12px);
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: none;
+  }
+}
+[data-reveal] > * {
+  animation: reveal-blur 0.6s cubic-bezier(0.2, 0.6, 0.2, 1) backwards;
+  animation-delay: calc(80ms * (sibling-index() + var(--reveal-offset, 0)));
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] > * {
+    animation: none;
+  }
+}
+
 /* Compass needle spin. transform-box: fill-box pins the rotation origin to the
    polygon's own bbox center (== 12,12, the circle center, since the shape is
    symmetric). The back-out bezier overshoots slightly for a spring feel,
