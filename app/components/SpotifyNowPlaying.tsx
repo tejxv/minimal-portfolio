@@ -186,94 +186,93 @@ export default function SpotifyNowPlaying() {
         hasTrackChanged ? "" : ""
       }`}
     >
-      <div className="flex group flex-col gap-4 md:flex-row md:items-start md:justify-between">
-        <div className="flex items-center gap-4 w-full">
-          <a
-            href={payload.songUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="relative block h-24 w-[140px] shrink-0 rounded-[2px] border-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
-            aria-label={`Open ${payload.title} on Spotify`}
-          >
-            {payload.albumImageUrl ? (
-              <>
-                {/* Vinyl record — slides out from behind the cover, spins while playing */}
-                <div
-                  className={`absolute right-0 left-[50px] transition-all duration-200 ease-in-out group-hover:left-[60px] top-2 z-0 h-20 w-20 rounded-full ${
-                    payload.isPlaying
-                      ? "motion-safe:animate-[spin_5s_linear_infinite]"
-                      : ""
-                  }`}
-                >
-                  {/* black disc + dim base grooves (uniform, all around) */}
+      <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
+        {/* On mobile: vinyl + spotify logo side-by-side, then text below.
+            On desktop: vinyl + text side-by-side, spotify logo at far right. */}
+        <div className="flex flex-col gap-3 md:flex-row md:items-center w-full">
+          {/* Row on mobile: vinyl left, spotify logo right */}
+          <div className="flex items-start justify-between md:contents">
+            <a
+              href={payload.songUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative block h-24 w-[140px] shrink-0 rounded-[2px] border-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+              aria-label={`Open ${payload.title} on Spotify`}
+            >
+              {payload.albumImageUrl ? (
+                <>
+                  {/* Vinyl record — slides out from behind the cover, spins while playing */}
                   <div
-                    className="absolute inset-0 rounded-full bg-neutral-950 shadow-md"
+                    className={`absolute right-0 left-[50px] transition-all duration-200 ease-in-out group-hover:left-[60px] top-2 z-0 h-20 w-20 rounded-full ${
+                      payload.isPlaying
+                        ? "motion-safe:animate-[spin_5s_linear_infinite]"
+                        : ""
+                    }`}
+                  >
+                    <div
+                      className="absolute inset-0 rounded-full bg-neutral-950 shadow-md"
+                      style={{
+                        backgroundImage:
+                          "repeating-radial-gradient(circle at 50% 50%, rgba(255,255,255,0.07) 0 0.5px, transparent 0.5px 3px)",
+                      }}
+                    />
+                    <div className="absolute left-1/2 top-1/2 h-10 w-10 -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-full ring-1 ring-black/20">
+                      <img
+                        src={payload.albumImageUrl}
+                        alt=""
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
+                    <div className="absolute left-1/2 top-1/2 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-neutral-50 ring-1 ring-black/30" />
+                  </div>
+                  <div
+                    className="pointer-events-none absolute left-[50px] top-2 z-[5] h-20 w-20 rounded-full transition-all duration-200 ease-in-out group-hover:left-[60px]"
                     style={{
                       backgroundImage:
-                        "repeating-radial-gradient(circle at 50% 50%, rgba(255,255,255,0.07) 0 0.5px, transparent 0.5px 3px)",
+                        "repeating-radial-gradient(circle at 50% 50%, rgba(255,255,255,0.18) 0 0.5px, transparent 0.5px 3px)",
+                      WebkitMaskImage:
+                        "radial-gradient(circle at 72% 74%, #000 0%, transparent 42%)",
+                      maskImage:
+                        "radial-gradient(circle at 72% 74%, #000 0%, transparent 42%)",
                     }}
                   />
-                  {/* album art cropped into the vinyl label */}
-                  <div className="absolute left-1/2 top-1/2 h-10 w-10 -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-full ring-1 ring-black/20">
-                    <img
-                      src={payload.albumImageUrl}
-                      alt=""
-                      className="h-full w-full object-cover"
-                    />
-                  </div>
-                  {/* center spindle hole */}
-                  <div className="absolute left-1/2 top-1/2 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-neutral-50 ring-1 ring-black/30" />
-                </div>
-                {/* groove shine — bright ring pattern masked to a lower-right
-                    patch. Sits OUTSIDE the spinning disc and never rotates: the
-                    grooves spin under it but the reflection stays fixed in space
-                    (real light physics). Concentric rings are rotation-symmetric,
-                    so they align with the spinning base grooves at any angle.
-                    Mirrors the disc's left-[50px] + hover slide so it tracks the
-                    vinyl horizontally without spinning. */}
-                <div
-                  className="pointer-events-none absolute left-[50px] top-2 z-[5] h-20 w-20 rounded-full transition-all duration-200 ease-in-out group-hover:left-[60px]"
-                  style={{
-                    backgroundImage:
-                      "repeating-radial-gradient(circle at 50% 50%, rgba(255,255,255,0.18) 0 0.5px, transparent 0.5px 3px)",
-                    WebkitMaskImage:
-                      "radial-gradient(circle at 72% 74%, #000 0%, transparent 42%)",
-                    maskImage:
-                      "radial-gradient(circle at 72% 74%, #000 0%, transparent 42%)",
-                  }}
-                />
-                {/* faint plastic sheen across the disc (static, subtle) */}
-                <div
-                  className="pointer-events-none absolute left-[50px] top-2 z-10 h-20 w-20 rounded-full transition-all duration-200 ease-in-out group-hover:left-[60px]"
-                  style={{
-                    background:
-                      "linear-gradient(125deg, rgba(255,255,255,0.18) 0%, transparent 35%, transparent 75%, rgba(255,255,255,0.08) 100%)",
-                  }}
-                />
-                {/* Album cover — sharp corners, sits in front */}
-                <div className="absolute left-0 top-0 z-20 h-24 w-24 overflow-hidden rounded-[0px] shadow-none">
-                  <img
-                    src={payload.albumImageUrl}
-                    alt={payload.album ?? payload.title}
-                    className="h-full w-full object-cover transition-all"
-                  />
-                  {/* persistent sheen — soft diagonal highlight + thin glare
-                      band. Oversized (-inset-4) so the group-hover translate
-                      sweeps the light across without exposing an unlit edge
-                      (parent clips via overflow-hidden). */}
                   <div
-                    className="pointer-events-none absolute -inset-4 transition-transform duration-500 ease-out group-hover:translate-x-3 group-hover:-translate-y-2"
+                    className="pointer-events-none absolute left-[50px] top-2 z-10 h-20 w-20 rounded-full transition-all duration-200 ease-in-out group-hover:left-[60px]"
                     style={{
                       background:
-                        "linear-gradient(135deg, rgba(255,255,255,0.28) 0%, rgba(255,255,255,0.08) 20%, transparent 42%), linear-gradient(115deg, transparent 38%, rgba(255,255,255,0.18) 48%, rgba(255,255,255,0.18) 52%, transparent 62%)",
+                        "linear-gradient(125deg, rgba(255,255,255,0.18) 0%, transparent 35%, transparent 75%, rgba(255,255,255,0.08) 100%)",
                     }}
                   />
-                </div>
-              </>
-            ) : (
-              <div className="h-24 w-24 rounded-[2px] bg-neutral-100" />
-            )}
-          </a>
+                  <div className="absolute left-0 top-0 z-20 h-24 w-24 overflow-hidden rounded-[0px] shadow-none">
+                    <img
+                      src={payload.albumImageUrl}
+                      alt={payload.album ?? payload.title}
+                      className="h-full w-full object-cover transition-all"
+                    />
+                    <div
+                      className="pointer-events-none absolute -inset-4 transition-transform duration-500 ease-out group-hover:translate-x-3 group-hover:-translate-y-2"
+                      style={{
+                        background:
+                          "linear-gradient(135deg, rgba(255,255,255,0.28) 0%, rgba(255,255,255,0.08) 20%, transparent 42%), linear-gradient(115deg, transparent 38%, rgba(255,255,255,0.18) 48%, rgba(255,255,255,0.18) 52%, transparent 62%)",
+                      }}
+                    />
+                  </div>
+                </>
+              ) : (
+                <div className="h-24 w-24 rounded-[2px] bg-neutral-100" />
+              )}
+            </a>
+            {/* Spotify logo — opposite vinyl on mobile, hidden on desktop (shown at far right below) */}
+            <div className="flex md:hidden items-center self-start pr-1">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg"
+                alt="Spotify"
+                className="h-5 w-auto grayscale antialiased"
+              />
+            </div>
+          </div>
+
+          {/* Song info — below vinyl on mobile, beside it on desktop */}
           <div className="space-y-2 min-w-0">
             <div className="flex flex-col items-start gap-0">
               <a
@@ -311,7 +310,9 @@ export default function SpotifyNowPlaying() {
             </div>
           </div>
         </div>
-        <div className="flex absolute right-4 bg-neutral-50 pl-2 pb-2 rounded-full items-center gap-2 text-xs text-neutral-400">
+
+        {/* Spotify logo on desktop — far right */}
+        <div className="hidden md:flex absolute right-4 bg-neutral-50 pl-2 pb-2 rounded-full items-center gap-2 text-xs text-neutral-400">
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg"
             alt="Spotify"

@@ -10,7 +10,7 @@ export default function Heading({
 }: HTMLAttributes<HTMLHeadingElement>) {
   return (
     <h1
-      className={`font-semibold text-2xl mb-8 tracking-tight ${className}`}
+      className={`font-semibold text-2xl mb-1 tracking-tight ${className}`}
       {...props}
     >
       {children}

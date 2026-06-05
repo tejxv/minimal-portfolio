@@ -7,6 +7,8 @@
     "prod": "next export"
   },
   "dependencies": {
+    "@react-three/drei": "^9.122.0",
+    "@react-three/fiber": "^8.18.0",
     "@tailwindcss/postcss": "4.0.0-alpha.13",
     "@types/node": "20.11.17",
     "@types/react": "18.2.55",
@@ -14,6 +16,8 @@
     "@vercel/analytics": "^1.3.1",
     "@vercel/speed-insights": "^1.0.9",
     "@videojs/react": "^10.0.0-beta.24",
+    "@web-kits/audio": "^0.1.0",
+    "framer-motion": "^11.18.2",
     "geist": "1.2.2",
     "image-size": "^2.0.2",
     "next": "canary",
@@ -21,6 +25,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "sugar-high": "^0.6.0",
+    "three": "^0.161.0",
     "typescript": "5.3.3"
   },
   "devDependencies": {

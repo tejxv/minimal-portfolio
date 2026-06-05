@@ -57,7 +57,7 @@ export default function NowInBengaluru() {
   }, [])
 
   return (
-    <div className="compass-host mb-16 flex items-start gap-2 text-sm font-medium tracking-tight lowercase text-neutral-500">
+    <div className="compass-host mt-10 mb-16 flex items-start gap-2 text-sm font-medium tracking-tight lowercase text-neutral-500">
       <Compass size={18} className="mt-0.5 shrink-0 text-neutral-600" />
       <p>
         Currently in{" "}

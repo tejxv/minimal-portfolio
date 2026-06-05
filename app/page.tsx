@@ -5,6 +5,7 @@ import Experience from "./components/experience"
 import Contact from "./components/contact"
 import WorkGridSection from "./components/work-grid-section"
 import Heading from "./components/heading"
+import Gear from "./components/gear"
 // import SectionRail from "./components/section-rail"
 // import SelectedWorks from "./components/SelectedWorks"
 
@@ -49,6 +50,9 @@ export default function Page() {
       {/* <div className="my-8">
         <Education />
       </div> */}
+      <div id="gear" className="my-8 scroll-mt-24">
+        <Gear />
+      </div>
       <div id="contact" className="my-8 scroll-mt-24">
         <Contact />
       </div>

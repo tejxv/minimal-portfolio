@@ -6,7 +6,6 @@ import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import Footer from "./components/footer"
 import Header from "./components/header"
-import NowInBengaluru from "./components/now-in-bengaluru"
 import { baseUrl } from "./sitemap"
 import DevToolbar from "./components/dev-toolbar"
 
@@ -58,7 +57,6 @@ export default function RootLayout({
             {children}
           </div>
           <Footer />
-          <NowInBengaluru />
           <SpeedInsights />
           <Analytics />
         </main>
