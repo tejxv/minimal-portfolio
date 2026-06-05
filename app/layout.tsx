@@ -62,13 +62,6 @@ export default function RootLayout({
         </main>
         <DevToolbar />
       </body>
-      {/* xmas decor */}
-      <script
-        async
-        src="https://cdn.jsdelivr.net/npm/@raae/let-it-snow@latest/dist/snowfall.js"
-        data-colors="#ebebeb"
-      ></script>
-      {/* xmas decor end */}
     </html>
   )
 }

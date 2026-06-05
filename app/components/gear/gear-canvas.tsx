@@ -14,11 +14,6 @@ import * as THREE from "three"
 import type { GearItem } from "./items"
 import { debugStore, useDebug, type DeviceParams } from "./debug-store"
 
-// Spin speed comes from the store each frame (getState, no re-render) so dev
-// tweaks apply live and hover still accelerates rotation off a plain ref.
-// showcase: modulate angular speed by how square-on the front faces the camera
-// (front = rotation.y ≡ phase). Slow ~0.2x at front so it lingers there, then
-// speed up through the back — a smooth "show the front, then carry on" loop.
 function useSpin(hovered: boolean, showcase = false, phase = 0) {
   const ref = useRef<THREE.Group>(null)
   const speed = useRef(0.35)
@@ -28,7 +23,6 @@ function useSpin(hovered: boolean, showcase = false, phase = 0) {
     speed.current += (target - speed.current) * Math.min(1, delta * 4)
     let scale = 1
     if (showcase && ref.current) {
-      // frontness: 1 when the resting face points at camera, 0 at the back
       const frontness = (Math.cos(ref.current.rotation.y - phase) + 1) / 2
       scale = 0.2 + (1 - frontness) * 1.5
     }
@@ -37,9 +31,6 @@ function useSpin(hovered: boolean, showcase = false, phase = 0) {
   return ref
 }
 
-// True while a drag is in progress on this canvas. Lets parallax bow out so it
-// doesn't fight PresentationControls. window pointerup catches a release that
-// happens outside the canvas.
 function useDragging() {
   const dragging = useRef(false)
   const gl = useThree((s) => s.gl)
@@ -57,10 +48,6 @@ function useDragging() {
   return dragging
 }
 
-// Subtle pointer parallax. Leans the model toward the cursor while the inner
-// spin keeps turning (nested group: this adds tilt on top of the spin's Y).
-// Eases back to neutral when the pointer leaves the card OR while dragging (so
-// it doesn't fight the drag-to-rotate).
 function Parallax({
   hovered,
   children,
@@ -94,8 +81,6 @@ function GLBModel({
 }) {
   const { scene } = useGLTF(item.model!.src, true)
   const cloned = useMemo(() => scene.clone(true), [scene])
-
-  // Normalize any model to a `fitTarget`-unit box regardless of source scale.
   const fitScale = useMemo(() => {
     const box = new THREE.Box3().setFromObject(cloned)
     const size = new THREE.Vector3()
@@ -103,9 +88,7 @@ function GLBModel({
     const maxDim = Math.max(size.x, size.y, size.z) || 1
     return fitTarget / maxDim
   }, [cloned, fitTarget])
-
   const spin = useSpin(hovered, item.showcase, dp.rotY)
-
   return (
     <group ref={spin} rotation={[dp.rotX, dp.rotY, dp.rotZ]}>
       <Center position-y={dp.y} scale={fitScale * dp.scale}>
@@ -125,11 +108,9 @@ function PrimitiveModel({
   dp: DeviceParams
 }) {
   const spin = useSpin(hovered)
-  const color = item.accent
   const mat = (
-    <meshStandardMaterial color={color} roughness={0.45} metalness={0.35} />
+    <meshStandardMaterial color={item.accent} roughness={0.45} metalness={0.35} />
   )
-
   return (
     <group
       ref={spin}
@@ -177,18 +158,23 @@ function PrimitiveModel({
 export default function GearCanvas({
   item,
   hovered,
+  active,
 }: {
   item: GearItem
   hovered: boolean
+  /** in/near viewport. Drives frameloop: render only on-screen. Off-screen the
+   *  canvas freezes on its last frame (model stays — no unmount pop) and the
+   *  GPU idles. */
+  active: boolean
 }) {
   const { global: g, devices } = useDebug()
   const dp = devices[item.id]
-  // Per-card lift for models that read too dark (e.g. the black MX Master).
   const lm = item.model?.light ?? 1
 
   return (
     <Canvas
-      dpr={[1, 2]}
+      frameloop={active ? "always" : "never"}
+      dpr={[1, 1.75]}
       gl={{ antialias: true, powerPreference: "high-performance", alpha: true }}
       style={{ width: "100%", height: "100%" }}
     >
