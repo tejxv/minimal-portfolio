@@ -17,6 +17,9 @@ export default function GearCard({ item }: { item: GearItem }) {
   useEffect(() => {
     if (inView) setMounted(true)
   }, [inView])
+  // Flips once this card's model (GLB or primitive) finishes resolving inside
+  // the canvas — drives the per-card loader → fade-in.
+  const [ready, setReady] = useState(false)
   const [hovered, setHovered] = useState(false)
   const reduce = useReducedMotion()
 
@@ -36,15 +39,39 @@ export default function GearCard({ item }: { item: GearItem }) {
       />
 
       <div className="relative h-72 w-full">
-        {mounted ? (
-          <GearCanvas item={item} hovered={hovered} active={inView} />
-        ) : (
+        {/* Accent glow backdrop — always present, so the card has color the
+            instant it opens (before/while the canvas mounts). */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 rounded-xl opacity-20"
+          style={{
+            background: `radial-gradient(circle at 50% 45%, ${item.accent}, transparent 70%)`,
+          }}
+        />
+
+        {mounted && (
           <div
-            className="h-full w-full rounded-xl opacity-20"
-            style={{
-              background: `radial-gradient(circle at 50% 45%, ${item.accent}, transparent 70%)`,
-            }}
-          />
+            className={`absolute inset-0 transition-opacity duration-500 ${
+              ready ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            <GearCanvas
+              item={item}
+              hovered={hovered}
+              active={inView}
+              onReady={() => setReady(true)}
+            />
+          </div>
+        )}
+
+        {/* Loader: spins over the glow until the model resolves. */}
+        {mounted && !ready && (
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 flex items-center justify-center"
+          >
+            <span className="h-6 w-6 animate-spin rounded-full border-2 border-neutral-300 border-t-neutral-600" />
+          </div>
         )}
 
         <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 rounded-b-lg bg-gradient-to-t from-neutral-50 via-neutral-50/80 to-transparent p-4 pt-10">

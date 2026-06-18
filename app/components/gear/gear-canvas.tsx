@@ -155,10 +155,23 @@ function PrimitiveModel({
   )
 }
 
+// Mounts only after its Suspense parent resolves (i.e. the GLB has loaded), so
+// it's the signal the card uses to drop its loader. Fires once.
+function Ready({ onReady }: { onReady?: () => void }) {
+  const fired = useRef(false)
+  useEffect(() => {
+    if (fired.current) return
+    fired.current = true
+    onReady?.()
+  })
+  return null
+}
+
 export default function GearCanvas({
   item,
   hovered,
   active,
+  onReady,
 }: {
   item: GearItem
   hovered: boolean
@@ -166,6 +179,8 @@ export default function GearCanvas({
    *  canvas freezes on its last frame (model stays — no unmount pop) and the
    *  GPU idles. */
   active: boolean
+  /** called once the model has resolved, so the card can fade out its loader. */
+  onReady?: () => void
 }) {
   const { global: g, devices } = useDebug()
   const dp = devices[item.id]
@@ -212,6 +227,7 @@ export default function GearCanvas({
           blur={g.shadowBlur}
           far={3}
         />
+        <Ready onReady={onReady} />
       </Suspense>
     </Canvas>
   )
